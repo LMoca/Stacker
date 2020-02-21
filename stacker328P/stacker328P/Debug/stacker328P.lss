@@ -1,0 +1,1327 @@
+
+stacker328P.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000002a  00800100  000006a4  00000738  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000006a4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000001  0080012a  0080012a  00000762  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000762  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000794  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000c0  00000000  00000000  000007d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001209  00000000  00000000  00000894  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000009b7  00000000  00000000  00001a9d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000a6b  00000000  00000000  00002454  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001d0  00000000  00000000  00002ec0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004f7  00000000  00000000  00003090  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000c12  00000000  00000000  00003587  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000108  00000000  00000000  00004199  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__vector_1>
+   8:	0c 94 6a 00 	jmp	0xd4	; 0xd4 <__vector_2>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e4 ea       	ldi	r30, 0xA4	; 164
+  7c:	f6 e0       	ldi	r31, 0x06	; 6
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	aa 32       	cpi	r26, 0x2A	; 42
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	aa e2       	ldi	r26, 0x2A	; 42
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	ab 32       	cpi	r26, 0x2B	; 43
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 b7 02 	call	0x56e	; 0x56e <main>
+  9e:	0c 94 50 03 	jmp	0x6a0	; 0x6a0 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <initINT>:
+	/* Using PORTB PCINT0 & PCINT1 for input interrupts
+	DDRB = (0 << PB0) | (0 << PB1);		// PB0 & PB1 as inputs
+	PORTB = (1 << PB0) | (1 << PB1);	// Enabling pull-up resistors
+	*/
+	// using PORTD INT pins
+	DDRD = (0 << PD2) | (0 << PD3);		// INT0 & INT1 as inputs
+  a6:	1a b8       	out	0x0a, r1	; 10
+	PORTD = (1 << PD2) | (1 << PD3);	// Enable pull-up resistors
+  a8:	8c e0       	ldi	r24, 0x0C	; 12
+  aa:	8b b9       	out	0x0b, r24	; 11
+	
+	EIMSK = 0x03;						// Enabling INT0 & INT1
+  ac:	83 e0       	ldi	r24, 0x03	; 3
+  ae:	8d bb       	out	0x1d, r24	; 29
+	EICRA = 0x0F;						// Detecting rising edge
+  b0:	8f e0       	ldi	r24, 0x0F	; 15
+  b2:	80 93 69 00 	sts	0x0069, r24	; 0x800069 <__TEXT_REGION_LENGTH__+0x7e0069>
+  b6:	08 95       	ret
+
+000000b8 <__vector_1>:
+
+/*
+*	Stop Button Interrupt
+*/
+ISR(INT0_vect)
+{
+  b8:	1f 92       	push	r1
+  ba:	0f 92       	push	r0
+  bc:	0f b6       	in	r0, 0x3f	; 63
+  be:	0f 92       	push	r0
+  c0:	11 24       	eor	r1, r1
+	buttonPress = 0;  // Change game state
+  c2:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__data_start>
+	// Pauses program until user lets go of button
+	while(PIND & 0x04){};
+  c6:	4a 99       	sbic	0x09, 2	; 9
+  c8:	fe cf       	rjmp	.-4      	; 0xc6 <__vector_1+0xe>
+}
+  ca:	0f 90       	pop	r0
+  cc:	0f be       	out	0x3f, r0	; 63
+  ce:	0f 90       	pop	r0
+  d0:	1f 90       	pop	r1
+  d2:	18 95       	reti
+
+000000d4 <__vector_2>:
+
+/*
+*	Reset Button Interrupt
+*/
+ISR(INT1_vect)
+{
+  d4:	1f 92       	push	r1
+  d6:	0f 92       	push	r0
+  d8:	0f b6       	in	r0, 0x3f	; 63
+  da:	0f 92       	push	r0
+  dc:	11 24       	eor	r1, r1
+  de:	8f 93       	push	r24
+	resetPress = 1; // Resets the game
+  e0:	81 e0       	ldi	r24, 0x01	; 1
+  e2:	80 93 2a 01 	sts	0x012A, r24	; 0x80012a <__data_end>
+	while(PIND & 0x08){};
+  e6:	4b 99       	sbic	0x09, 3	; 9
+  e8:	fe cf       	rjmp	.-4      	; 0xe6 <__vector_2+0x12>
+}
+  ea:	8f 91       	pop	r24
+  ec:	0f 90       	pop	r0
+  ee:	0f be       	out	0x3f, r0	; 63
+  f0:	0f 90       	pop	r0
+  f2:	1f 90       	pop	r1
+  f4:	18 95       	reti
+
+000000f6 <setScore>:
+*
+*	Returns the predefined score set
+*	from the 1st row.
+*/
+uint16_t setScore()
+{
+  f6:	1f 93       	push	r17
+  f8:	cf 93       	push	r28
+  fa:	df 93       	push	r29
+	// Variable used to return
+	// the original score 
+	uint16_t shift = 1;
+  fc:	c1 e0       	ldi	r28, 0x01	; 1
+  fe:	d0 e0       	ldi	r29, 0x00	; 0
+	
+	while(buttonPress && !resetPress)
+ 100:	61 c0       	rjmp	.+194    	; 0x1c4 <setScore+0xce>
+ 102:	19 e0       	ldi	r17, 0x09	; 9
+		// For loops make LEDs shift back & forth
+		for(uint8_t i = 0; i < 9; ++i)
+		{
+			// Since this is the first button press to determine
+			// user score, 3 LEDs will be shifted.
+			if(shift == 2 || shift == 6) shift |= 0x01;
+ 104:	ce 01       	movw	r24, r28
+ 106:	8b 7f       	andi	r24, 0xFB	; 251
+ 108:	02 97       	sbiw	r24, 0x02	; 2
+ 10a:	09 f4       	brne	.+2      	; 0x10e <setScore+0x18>
+ 10c:	c1 60       	ori	r28, 0x01	; 1
+			
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+ 10e:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 112:	88 23       	and	r24, r24
+ 114:	39 f1       	breq	.+78     	; 0x164 <setScore+0x6e>
+ 116:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 11a:	81 11       	cpse	r24, r1
+ 11c:	19 c0       	rjmp	.+50     	; 0x150 <setScore+0x5a>
+ 11e:	6c 2f       	mov	r22, r28
+ 120:	88 e0       	ldi	r24, 0x08	; 8
+ 122:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+			if(buttonPress && !resetPress) _delay_ms(100);
+ 126:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 12a:	88 23       	and	r24, r24
+ 12c:	d9 f0       	breq	.+54     	; 0x164 <setScore+0x6e>
+ 12e:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 132:	81 11       	cpse	r24, r1
+ 134:	51 c0       	rjmp	.+162    	; 0x1d8 <setScore+0xe2>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 136:	2f ef       	ldi	r18, 0xFF	; 255
+ 138:	80 e7       	ldi	r24, 0x70	; 112
+ 13a:	92 e0       	ldi	r25, 0x02	; 2
+ 13c:	21 50       	subi	r18, 0x01	; 1
+ 13e:	80 40       	sbci	r24, 0x00	; 0
+ 140:	90 40       	sbci	r25, 0x00	; 0
+ 142:	e1 f7       	brne	.-8      	; 0x13c <setScore+0x46>
+ 144:	00 c0       	rjmp	.+0      	; 0x146 <setScore+0x50>
+ 146:	00 00       	nop
+			if(buttonPress && !resetPress) shift = shift<<1;  //shift value to the left by 1
+ 148:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 14c:	88 23       	and	r24, r24
+ 14e:	51 f0       	breq	.+20     	; 0x164 <setScore+0x6e>
+ 150:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 154:	81 11       	cpse	r24, r1
+ 156:	06 c0       	rjmp	.+12     	; 0x164 <setScore+0x6e>
+ 158:	cc 0f       	add	r28, r28
+ 15a:	dd 1f       	adc	r29, r29
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+ 15c:	6c 2f       	mov	r22, r28
+ 15e:	88 e0       	ldi	r24, 0x08	; 8
+ 160:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+ 164:	11 50       	subi	r17, 0x01	; 1
+	uint16_t shift = 1;
+	
+	while(buttonPress && !resetPress)
+	{
+		// For loops make LEDs shift back & forth
+		for(uint8_t i = 0; i < 9; ++i)
+ 166:	71 f6       	brne	.-100    	; 0x104 <setScore+0xe>
+ 168:	19 e0       	ldi	r17, 0x09	; 9
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+		}
+	
+		for(uint8_t i = 0; i < 9; ++i)
+		{
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+ 16a:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 16e:	88 23       	and	r24, r24
+ 170:	39 f1       	breq	.+78     	; 0x1c0 <setScore+0xca>
+ 172:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 176:	81 11       	cpse	r24, r1
+ 178:	19 c0       	rjmp	.+50     	; 0x1ac <setScore+0xb6>
+ 17a:	6c 2f       	mov	r22, r28
+ 17c:	88 e0       	ldi	r24, 0x08	; 8
+ 17e:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+			if(buttonPress && !resetPress) _delay_ms(100);
+ 182:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 186:	88 23       	and	r24, r24
+ 188:	d9 f0       	breq	.+54     	; 0x1c0 <setScore+0xca>
+ 18a:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 18e:	81 11       	cpse	r24, r1
+ 190:	28 c0       	rjmp	.+80     	; 0x1e2 <setScore+0xec>
+ 192:	2f ef       	ldi	r18, 0xFF	; 255
+ 194:	80 e7       	ldi	r24, 0x70	; 112
+ 196:	92 e0       	ldi	r25, 0x02	; 2
+ 198:	21 50       	subi	r18, 0x01	; 1
+ 19a:	80 40       	sbci	r24, 0x00	; 0
+ 19c:	90 40       	sbci	r25, 0x00	; 0
+ 19e:	e1 f7       	brne	.-8      	; 0x198 <setScore+0xa2>
+ 1a0:	00 c0       	rjmp	.+0      	; 0x1a2 <setScore+0xac>
+ 1a2:	00 00       	nop
+			if(buttonPress && !resetPress) shift = shift>>1;  //shift value to the right by 1
+ 1a4:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 1a8:	88 23       	and	r24, r24
+ 1aa:	51 f0       	breq	.+20     	; 0x1c0 <setScore+0xca>
+ 1ac:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 1b0:	81 11       	cpse	r24, r1
+ 1b2:	06 c0       	rjmp	.+12     	; 0x1c0 <setScore+0xca>
+ 1b4:	d6 95       	lsr	r29
+ 1b6:	c7 95       	ror	r28
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+ 1b8:	6c 2f       	mov	r22, r28
+ 1ba:	88 e0       	ldi	r24, 0x08	; 8
+ 1bc:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+ 1c0:	11 50       	subi	r17, 0x01	; 1
+			if(buttonPress && !resetPress) _delay_ms(100);
+			if(buttonPress && !resetPress) shift = shift<<1;  //shift value to the left by 1
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+		}
+	
+		for(uint8_t i = 0; i < 9; ++i)
+ 1c2:	99 f6       	brne	.-90     	; 0x16a <setScore+0x74>
+{
+	// Variable used to return
+	// the original score 
+	uint16_t shift = 1;
+	
+	while(buttonPress && !resetPress)
+ 1c4:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 1c8:	88 23       	and	r24, r24
+ 1ca:	81 f0       	breq	.+32     	; 0x1ec <setScore+0xf6>
+ 1cc:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 1d0:	88 23       	and	r24, r24
+ 1d2:	09 f4       	brne	.+2      	; 0x1d6 <setScore+0xe0>
+ 1d4:	96 cf       	rjmp	.-212    	; 0x102 <setScore+0xc>
+ 1d6:	0a c0       	rjmp	.+20     	; 0x1ec <setScore+0xf6>
+			if(shift == 2 || shift == 6) shift |= 0x01;
+			
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+			if(buttonPress && !resetPress) _delay_ms(100);
+			if(buttonPress && !resetPress) shift = shift<<1;  //shift value to the left by 1
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+ 1d8:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 1dc:	81 11       	cpse	r24, r1
+ 1de:	c2 cf       	rjmp	.-124    	; 0x164 <setScore+0x6e>
+ 1e0:	bd cf       	rjmp	.-134    	; 0x15c <setScore+0x66>
+		for(uint8_t i = 0; i < 9; ++i)
+		{
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+			if(buttonPress && !resetPress) _delay_ms(100);
+			if(buttonPress && !resetPress) shift = shift>>1;  //shift value to the right by 1
+			if(buttonPress && !resetPress) writeMax(0x08,shift);
+ 1e2:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 1e6:	81 11       	cpse	r24, r1
+ 1e8:	eb cf       	rjmp	.-42     	; 0x1c0 <setScore+0xca>
+ 1ea:	e6 cf       	rjmp	.-52     	; 0x1b8 <setScore+0xc2>
+		}
+	}
+	
+	return shift;
+}
+ 1ec:	ce 01       	movw	r24, r28
+ 1ee:	df 91       	pop	r29
+ 1f0:	cf 91       	pop	r28
+ 1f2:	1f 91       	pop	r17
+ 1f4:	08 95       	ret
+
+000001f6 <setLives>:
+{
+	uint8_t lives = 0;
+	
+	// Returns the # of lives
+	// depending on the score
+	switch(score)
+ 1f6:	82 30       	cpi	r24, 0x02	; 2
+ 1f8:	41 f0       	breq	.+16     	; 0x20a <setLives+0x14>
+ 1fa:	18 f4       	brcc	.+6      	; 0x202 <setLives+0xc>
+ 1fc:	81 30       	cpi	r24, 0x01	; 1
+ 1fe:	49 f0       	breq	.+18     	; 0x212 <setLives+0x1c>
+ 200:	06 c0       	rjmp	.+12     	; 0x20e <setLives+0x18>
+ 202:	80 38       	cpi	r24, 0x80	; 128
+ 204:	31 f0       	breq	.+12     	; 0x212 <setLives+0x1c>
+ 206:	80 3c       	cpi	r24, 0xC0	; 192
+ 208:	11 f4       	brne	.+4      	; 0x20e <setLives+0x18>
+		case 0x01:
+			lives = 1;
+		break;
+		
+		case 0x02:
+			lives = 2;
+ 20a:	82 e0       	ldi	r24, 0x02	; 2
+ 20c:	08 95       	ret
+		case 0xC0:
+			lives = 2;
+		break;
+		
+		default:
+			lives = 3;
+ 20e:	83 e0       	ldi	r24, 0x03	; 3
+		break;
+ 210:	08 95       	ret
+	// Returns the # of lives
+	// depending on the score
+	switch(score)
+	{
+		case 0x01:
+			lives = 1;
+ 212:	81 e0       	ldi	r24, 0x01	; 1
+		default:
+			lives = 3;
+		break;
+	}
+	return lives;
+}
+ 214:	08 95       	ret
+
+00000216 <livesRemaining>:
+*	remaining lives.
+*	Passing Parameters:
+*	uint8_t score - used to check for high bits
+*/
+uint8_t livesRemaining(uint8_t score)
+{
+ 216:	58 2f       	mov	r21, r24
+ 218:	28 e0       	ldi	r18, 0x08	; 8
+ 21a:	30 e0       	ldi	r19, 0x00	; 0
+	uint8_t lives = 0;
+	
+	// Check all 8 bits to detect high bits
+	for(uint8_t i = 0x80; i > 0; i = i >> 1)
+ 21c:	90 e8       	ldi	r25, 0x80	; 128
+*	Passing Parameters:
+*	uint8_t score - used to check for high bits
+*/
+uint8_t livesRemaining(uint8_t score)
+{
+	uint8_t lives = 0;
+ 21e:	80 e0       	ldi	r24, 0x00	; 0
+	
+	// Check all 8 bits to detect high bits
+	for(uint8_t i = 0x80; i > 0; i = i >> 1)
+	{
+		// if bits are the same, increment lives
+		if(score & i) lives +=1;
+ 220:	45 2f       	mov	r20, r21
+ 222:	49 23       	and	r20, r25
+ 224:	09 f0       	breq	.+2      	; 0x228 <livesRemaining+0x12>
+ 226:	8f 5f       	subi	r24, 0xFF	; 255
+uint8_t livesRemaining(uint8_t score)
+{
+	uint8_t lives = 0;
+	
+	// Check all 8 bits to detect high bits
+	for(uint8_t i = 0x80; i > 0; i = i >> 1)
+ 228:	96 95       	lsr	r25
+ 22a:	21 50       	subi	r18, 0x01	; 1
+ 22c:	31 09       	sbc	r19, r1
+ 22e:	c1 f7       	brne	.-16     	; 0x220 <livesRemaining+0xa>
+		// if bits are the same, increment lives
+		if(score & i) lives +=1;
+	}
+	
+	return lives;
+}
+ 230:	08 95       	ret
+
+00000232 <scan>:
+
+/*
+*	Function scans through each row.
+*/
+uint8_t scan(uint8_t row, uint8_t score, uint8_t lives)
+{
+ 232:	ef 92       	push	r14
+ 234:	ff 92       	push	r15
+ 236:	0f 93       	push	r16
+ 238:	1f 93       	push	r17
+ 23a:	cf 93       	push	r28
+ 23c:	df 93       	push	r29
+ 23e:	f8 2e       	mov	r15, r24
+	int8_t addLives = lives - 1;
+ 240:	ee 24       	eor	r14, r14
+ 242:	ea 94       	dec	r14
+ 244:	e4 0e       	add	r14, r20
+	uint16_t shift = 1;
+ 246:	01 e0       	ldi	r16, 0x01	; 1
+ 248:	10 e0       	ldi	r17, 0x00	; 0
+	
+	while(buttonPress && !resetPress)
+ 24a:	61 c0       	rjmp	.+194    	; 0x30e <scan+0xdc>
+	{
+		addLives = lives - 1;
+ 24c:	de 2d       	mov	r29, r14
+ 24e:	c9 e0       	ldi	r28, 0x09	; 9
+		for(uint8_t i = 0; i < 9; ++i)
+		{
+			// Accommodate LED shifts according
+			// to the # of lives
+			if(addLives >= 0) 
+ 250:	dd 23       	and	r29, r29
+ 252:	14 f0       	brlt	.+4      	; 0x258 <scan+0x26>
+			{
+				shift |= 0x01;
+ 254:	01 60       	ori	r16, 0x01	; 1
+				addLives -=1;
+ 256:	d1 50       	subi	r29, 0x01	; 1
+			}
+			
+			if(buttonPress && !resetPress) writeMax(row, shift);
+ 258:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 25c:	88 23       	and	r24, r24
+ 25e:	39 f1       	breq	.+78     	; 0x2ae <scan+0x7c>
+ 260:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 264:	81 11       	cpse	r24, r1
+ 266:	19 c0       	rjmp	.+50     	; 0x29a <scan+0x68>
+ 268:	60 2f       	mov	r22, r16
+ 26a:	8f 2d       	mov	r24, r15
+ 26c:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+			if(buttonPress && !resetPress) _delay_ms(100);
+ 270:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 274:	88 23       	and	r24, r24
+ 276:	d9 f0       	breq	.+54     	; 0x2ae <scan+0x7c>
+ 278:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 27c:	81 11       	cpse	r24, r1
+ 27e:	51 c0       	rjmp	.+162    	; 0x322 <scan+0xf0>
+ 280:	2f ef       	ldi	r18, 0xFF	; 255
+ 282:	80 e7       	ldi	r24, 0x70	; 112
+ 284:	92 e0       	ldi	r25, 0x02	; 2
+ 286:	21 50       	subi	r18, 0x01	; 1
+ 288:	80 40       	sbci	r24, 0x00	; 0
+ 28a:	90 40       	sbci	r25, 0x00	; 0
+ 28c:	e1 f7       	brne	.-8      	; 0x286 <scan+0x54>
+ 28e:	00 c0       	rjmp	.+0      	; 0x290 <scan+0x5e>
+ 290:	00 00       	nop
+			if(buttonPress && !resetPress) shift = shift<<1;  //shift value to the left by 1
+ 292:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 296:	88 23       	and	r24, r24
+ 298:	51 f0       	breq	.+20     	; 0x2ae <scan+0x7c>
+ 29a:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 29e:	81 11       	cpse	r24, r1
+ 2a0:	06 c0       	rjmp	.+12     	; 0x2ae <scan+0x7c>
+ 2a2:	00 0f       	add	r16, r16
+ 2a4:	11 1f       	adc	r17, r17
+			if(buttonPress && !resetPress) writeMax(row, shift);
+ 2a6:	60 2f       	mov	r22, r16
+ 2a8:	8f 2d       	mov	r24, r15
+ 2aa:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+ 2ae:	c1 50       	subi	r28, 0x01	; 1
+	uint16_t shift = 1;
+	
+	while(buttonPress && !resetPress)
+	{
+		addLives = lives - 1;
+		for(uint8_t i = 0; i < 9; ++i)
+ 2b0:	79 f6       	brne	.-98     	; 0x250 <scan+0x1e>
+ 2b2:	c9 e0       	ldi	r28, 0x09	; 9
+			if(buttonPress && !resetPress) shift = shift<<1;  //shift value to the left by 1
+			if(buttonPress && !resetPress) writeMax(row, shift);
+		}
+		for(uint8_t i = 0; i < 9; ++i)
+		{
+			if(buttonPress && !resetPress) writeMax(row, shift);
+ 2b4:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 2b8:	88 23       	and	r24, r24
+ 2ba:	39 f1       	breq	.+78     	; 0x30a <scan+0xd8>
+ 2bc:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 2c0:	81 11       	cpse	r24, r1
+ 2c2:	19 c0       	rjmp	.+50     	; 0x2f6 <scan+0xc4>
+ 2c4:	60 2f       	mov	r22, r16
+ 2c6:	8f 2d       	mov	r24, r15
+ 2c8:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+			if(buttonPress && !resetPress) _delay_ms(100);
+ 2cc:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 2d0:	88 23       	and	r24, r24
+ 2d2:	d9 f0       	breq	.+54     	; 0x30a <scan+0xd8>
+ 2d4:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 2d8:	81 11       	cpse	r24, r1
+ 2da:	28 c0       	rjmp	.+80     	; 0x32c <scan+0xfa>
+ 2dc:	2f ef       	ldi	r18, 0xFF	; 255
+ 2de:	80 e7       	ldi	r24, 0x70	; 112
+ 2e0:	92 e0       	ldi	r25, 0x02	; 2
+ 2e2:	21 50       	subi	r18, 0x01	; 1
+ 2e4:	80 40       	sbci	r24, 0x00	; 0
+ 2e6:	90 40       	sbci	r25, 0x00	; 0
+ 2e8:	e1 f7       	brne	.-8      	; 0x2e2 <scan+0xb0>
+ 2ea:	00 c0       	rjmp	.+0      	; 0x2ec <scan+0xba>
+ 2ec:	00 00       	nop
+			if(buttonPress && !resetPress) shift = shift>>1;  //shift value to the right by 1
+ 2ee:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 2f2:	88 23       	and	r24, r24
+ 2f4:	51 f0       	breq	.+20     	; 0x30a <scan+0xd8>
+ 2f6:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 2fa:	81 11       	cpse	r24, r1
+ 2fc:	06 c0       	rjmp	.+12     	; 0x30a <scan+0xd8>
+ 2fe:	16 95       	lsr	r17
+ 300:	07 95       	ror	r16
+			if(buttonPress && !resetPress) writeMax(row, shift);
+ 302:	60 2f       	mov	r22, r16
+ 304:	8f 2d       	mov	r24, r15
+ 306:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+ 30a:	c1 50       	subi	r28, 0x01	; 1
+			if(buttonPress && !resetPress) writeMax(row, shift);
+			if(buttonPress && !resetPress) _delay_ms(100);
+			if(buttonPress && !resetPress) shift = shift<<1;  //shift value to the left by 1
+			if(buttonPress && !resetPress) writeMax(row, shift);
+		}
+		for(uint8_t i = 0; i < 9; ++i)
+ 30c:	99 f6       	brne	.-90     	; 0x2b4 <scan+0x82>
+uint8_t scan(uint8_t row, uint8_t score, uint8_t lives)
+{
+	int8_t addLives = lives - 1;
+	uint16_t shift = 1;
+	
+	while(buttonPress && !resetPress)
+ 30e:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 312:	88 23       	and	r24, r24
+ 314:	81 f0       	breq	.+32     	; 0x336 <scan+0x104>
+ 316:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 31a:	88 23       	and	r24, r24
+ 31c:	09 f4       	brne	.+2      	; 0x320 <scan+0xee>
+ 31e:	96 cf       	rjmp	.-212    	; 0x24c <scan+0x1a>
+ 320:	0a c0       	rjmp	.+20     	; 0x336 <scan+0x104>
+			}
+			
+			if(buttonPress && !resetPress) writeMax(row, shift);
+			if(buttonPress && !resetPress) _delay_ms(100);
+			if(buttonPress && !resetPress) shift = shift<<1;  //shift value to the left by 1
+			if(buttonPress && !resetPress) writeMax(row, shift);
+ 322:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 326:	81 11       	cpse	r24, r1
+ 328:	c2 cf       	rjmp	.-124    	; 0x2ae <scan+0x7c>
+ 32a:	bd cf       	rjmp	.-134    	; 0x2a6 <scan+0x74>
+		for(uint8_t i = 0; i < 9; ++i)
+		{
+			if(buttonPress && !resetPress) writeMax(row, shift);
+			if(buttonPress && !resetPress) _delay_ms(100);
+			if(buttonPress && !resetPress) shift = shift>>1;  //shift value to the right by 1
+			if(buttonPress && !resetPress) writeMax(row, shift);
+ 32c:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 330:	81 11       	cpse	r24, r1
+ 332:	eb cf       	rjmp	.-42     	; 0x30a <scan+0xd8>
+ 334:	e6 cf       	rjmp	.-52     	; 0x302 <scan+0xd0>
+		}
+	}
+	return shift;
+}
+ 336:	80 2f       	mov	r24, r16
+ 338:	df 91       	pop	r29
+ 33a:	cf 91       	pop	r28
+ 33c:	1f 91       	pop	r17
+ 33e:	0f 91       	pop	r16
+ 340:	ff 90       	pop	r15
+ 342:	ef 90       	pop	r14
+ 344:	08 95       	ret
+
+00000346 <congrats>:
+
+/*
+*	Function executes when player wins the game.
+*/
+void congrats()
+{
+ 346:	ef 92       	push	r14
+ 348:	ff 92       	push	r15
+ 34a:	0f 93       	push	r16
+ 34c:	1f 93       	push	r17
+ 34e:	cf 93       	push	r28
+ 350:	df 93       	push	r29
+ 352:	cd b7       	in	r28, 0x3d	; 61
+ 354:	de b7       	in	r29, 0x3e	; 62
+ 356:	a0 97       	sbiw	r28, 0x20	; 32
+ 358:	0f b6       	in	r0, 0x3f	; 63
+ 35a:	f8 94       	cli
+ 35c:	de bf       	out	0x3e, r29	; 62
+ 35e:	0f be       	out	0x3f, r0	; 63
+ 360:	cd bf       	out	0x3d, r28	; 61
+	uint8_t y = 0, l = 0;
+	
+	uint8_t image_1[8] = {0x00, 0x00, 0x00, 0x18, 0x18, 0x00, 0x00, 0x00};
+ 362:	88 e0       	ldi	r24, 0x08	; 8
+ 364:	e1 e0       	ldi	r30, 0x01	; 1
+ 366:	f1 e0       	ldi	r31, 0x01	; 1
+ 368:	de 01       	movw	r26, r28
+ 36a:	11 96       	adiw	r26, 0x01	; 1
+ 36c:	01 90       	ld	r0, Z+
+ 36e:	0d 92       	st	X+, r0
+ 370:	8a 95       	dec	r24
+ 372:	e1 f7       	brne	.-8      	; 0x36c <congrats+0x26>
+	uint8_t image_2[8] = {0x00, 0x00, 0x3C, 0x24, 0x24, 0x3C, 0x00, 0x00};
+ 374:	88 e0       	ldi	r24, 0x08	; 8
+ 376:	e9 e0       	ldi	r30, 0x09	; 9
+ 378:	f1 e0       	ldi	r31, 0x01	; 1
+ 37a:	de 01       	movw	r26, r28
+ 37c:	19 96       	adiw	r26, 0x09	; 9
+ 37e:	01 90       	ld	r0, Z+
+ 380:	0d 92       	st	X+, r0
+ 382:	8a 95       	dec	r24
+ 384:	e1 f7       	brne	.-8      	; 0x37e <congrats+0x38>
+	uint8_t image_3[8] = {0x00, 0x7E, 0x42, 0x5A, 0x5A, 0x42, 0x7E, 0x00};
+ 386:	88 e0       	ldi	r24, 0x08	; 8
+ 388:	e1 e1       	ldi	r30, 0x11	; 17
+ 38a:	f1 e0       	ldi	r31, 0x01	; 1
+ 38c:	de 01       	movw	r26, r28
+ 38e:	51 96       	adiw	r26, 0x11	; 17
+ 390:	01 90       	ld	r0, Z+
+ 392:	0d 92       	st	X+, r0
+ 394:	8a 95       	dec	r24
+ 396:	e1 f7       	brne	.-8      	; 0x390 <congrats+0x4a>
+	uint8_t image_4[8] = {0xFF, 0x81, 0xBD, 0xA5, 0xA5, 0xBD, 0x81, 0xFF};
+ 398:	88 e0       	ldi	r24, 0x08	; 8
+ 39a:	e9 e1       	ldi	r30, 0x19	; 25
+ 39c:	f1 e0       	ldi	r31, 0x01	; 1
+ 39e:	de 01       	movw	r26, r28
+ 3a0:	59 96       	adiw	r26, 0x19	; 25
+ 3a2:	01 90       	ld	r0, Z+
+ 3a4:	0d 92       	st	X+, r0
+ 3a6:	8a 95       	dec	r24
+ 3a8:	e1 f7       	brne	.-8      	; 0x3a2 <congrats+0x5c>
+ 3aa:	7e 01       	movw	r14, r28
+ 3ac:	29 e0       	ldi	r18, 0x09	; 9
+ 3ae:	e2 0e       	add	r14, r18
+ 3b0:	f1 1c       	adc	r15, r1
+	
+	for(y = 8; y > 0; --y)
+ 3b2:	18 e0       	ldi	r17, 0x08	; 8
+	{
+		writeMax(y, image_1[y-1]);
+ 3b4:	f7 01       	movw	r30, r14
+ 3b6:	62 91       	ld	r22, -Z
+ 3b8:	7f 01       	movw	r14, r30
+ 3ba:	81 2f       	mov	r24, r17
+ 3bc:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	uint8_t image_1[8] = {0x00, 0x00, 0x00, 0x18, 0x18, 0x00, 0x00, 0x00};
+	uint8_t image_2[8] = {0x00, 0x00, 0x3C, 0x24, 0x24, 0x3C, 0x00, 0x00};
+	uint8_t image_3[8] = {0x00, 0x7E, 0x42, 0x5A, 0x5A, 0x42, 0x7E, 0x00};
+	uint8_t image_4[8] = {0xFF, 0x81, 0xBD, 0xA5, 0xA5, 0xBD, 0x81, 0xFF};
+	
+	for(y = 8; y > 0; --y)
+ 3c0:	11 50       	subi	r17, 0x01	; 1
+ 3c2:	c1 f7       	brne	.-16     	; 0x3b4 <congrats+0x6e>
+ 3c4:	ff ef       	ldi	r31, 0xFF	; 255
+ 3c6:	25 ea       	ldi	r18, 0xA5	; 165
+ 3c8:	8e e0       	ldi	r24, 0x0E	; 14
+ 3ca:	f1 50       	subi	r31, 0x01	; 1
+ 3cc:	20 40       	sbci	r18, 0x00	; 0
+ 3ce:	80 40       	sbci	r24, 0x00	; 0
+ 3d0:	e1 f7       	brne	.-8      	; 0x3ca <congrats+0x84>
+ 3d2:	00 c0       	rjmp	.+0      	; 0x3d4 <congrats+0x8e>
+ 3d4:	00 00       	nop
+ 3d6:	7e 01       	movw	r14, r28
+ 3d8:	91 e1       	ldi	r25, 0x11	; 17
+ 3da:	e9 0e       	add	r14, r25
+ 3dc:	f1 1c       	adc	r15, r1
+	{
+		writeMax(y, image_1[y-1]);
+	}
+	_delay_ms(600);
+	for(y = 8; y > 0; --y)
+ 3de:	18 e0       	ldi	r17, 0x08	; 8
+	{
+		writeMax(y, image_2[y-1]);
+ 3e0:	f7 01       	movw	r30, r14
+ 3e2:	62 91       	ld	r22, -Z
+ 3e4:	7f 01       	movw	r14, r30
+ 3e6:	81 2f       	mov	r24, r17
+ 3e8:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	for(y = 8; y > 0; --y)
+	{
+		writeMax(y, image_1[y-1]);
+	}
+	_delay_ms(600);
+	for(y = 8; y > 0; --y)
+ 3ec:	11 50       	subi	r17, 0x01	; 1
+ 3ee:	c1 f7       	brne	.-16     	; 0x3e0 <congrats+0x9a>
+ 3f0:	ff ef       	ldi	r31, 0xFF	; 255
+ 3f2:	25 ea       	ldi	r18, 0xA5	; 165
+ 3f4:	8e e0       	ldi	r24, 0x0E	; 14
+ 3f6:	f1 50       	subi	r31, 0x01	; 1
+ 3f8:	20 40       	sbci	r18, 0x00	; 0
+ 3fa:	80 40       	sbci	r24, 0x00	; 0
+ 3fc:	e1 f7       	brne	.-8      	; 0x3f6 <congrats+0xb0>
+ 3fe:	00 c0       	rjmp	.+0      	; 0x400 <__LOCK_REGION_LENGTH__>
+ 400:	00 00       	nop
+ 402:	fe 01       	movw	r30, r28
+ 404:	79 96       	adiw	r30, 0x19	; 25
+ 406:	7f 01       	movw	r14, r30
+	{
+		writeMax(y, image_2[y-1]);
+	}
+	_delay_ms(600);
+	for(y = 8; y > 0; --y)
+ 408:	18 e0       	ldi	r17, 0x08	; 8
+	{
+		writeMax(y, image_3[y-1]);
+ 40a:	f7 01       	movw	r30, r14
+ 40c:	62 91       	ld	r22, -Z
+ 40e:	7f 01       	movw	r14, r30
+ 410:	81 2f       	mov	r24, r17
+ 412:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	for(y = 8; y > 0; --y)
+	{
+		writeMax(y, image_2[y-1]);
+	}
+	_delay_ms(600);
+	for(y = 8; y > 0; --y)
+ 416:	11 50       	subi	r17, 0x01	; 1
+ 418:	c1 f7       	brne	.-16     	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
+ 41a:	ff ef       	ldi	r31, 0xFF	; 255
+ 41c:	25 ea       	ldi	r18, 0xA5	; 165
+ 41e:	8e e0       	ldi	r24, 0x0E	; 14
+ 420:	f1 50       	subi	r31, 0x01	; 1
+ 422:	20 40       	sbci	r18, 0x00	; 0
+ 424:	80 40       	sbci	r24, 0x00	; 0
+ 426:	e1 f7       	brne	.-8      	; 0x420 <__LOCK_REGION_LENGTH__+0x20>
+ 428:	00 c0       	rjmp	.+0      	; 0x42a <__LOCK_REGION_LENGTH__+0x2a>
+ 42a:	00 00       	nop
+ 42c:	fe 01       	movw	r30, r28
+ 42e:	b1 96       	adiw	r30, 0x21	; 33
+ 430:	7f 01       	movw	r14, r30
+	{
+		writeMax(y, image_3[y-1]);
+	}
+	_delay_ms(600);
+	for(y = 8; y > 0; --y)
+ 432:	18 e0       	ldi	r17, 0x08	; 8
+	{
+		writeMax(y, image_4[y-1]);
+ 434:	f7 01       	movw	r30, r14
+ 436:	62 91       	ld	r22, -Z
+ 438:	7f 01       	movw	r14, r30
+ 43a:	81 2f       	mov	r24, r17
+ 43c:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	for(y = 8; y > 0; --y)
+	{
+		writeMax(y, image_3[y-1]);
+	}
+	_delay_ms(600);
+	for(y = 8; y > 0; --y)
+ 440:	11 50       	subi	r17, 0x01	; 1
+ 442:	c1 f7       	brne	.-16     	; 0x434 <__LOCK_REGION_LENGTH__+0x34>
+ 444:	ff ef       	ldi	r31, 0xFF	; 255
+ 446:	25 ea       	ldi	r18, 0xA5	; 165
+ 448:	8e e0       	ldi	r24, 0x0E	; 14
+ 44a:	f1 50       	subi	r31, 0x01	; 1
+ 44c:	20 40       	sbci	r18, 0x00	; 0
+ 44e:	80 40       	sbci	r24, 0x00	; 0
+ 450:	e1 f7       	brne	.-8      	; 0x44a <__LOCK_REGION_LENGTH__+0x4a>
+ 452:	00 c0       	rjmp	.+0      	; 0x454 <__LOCK_REGION_LENGTH__+0x54>
+ 454:	00 00       	nop
+ 456:	03 e0       	ldi	r16, 0x03	; 3
+ 458:	28 c0       	rjmp	.+80     	; 0x4aa <__LOCK_REGION_LENGTH__+0xaa>
+	
+	while(l < 3)
+	{
+		for(y = 8; y > 0; --y)
+		{
+			writeMax(y, image_3[y-1]);
+ 45a:	f7 01       	movw	r30, r14
+ 45c:	62 91       	ld	r22, -Z
+ 45e:	7f 01       	movw	r14, r30
+ 460:	81 2f       	mov	r24, r17
+ 462:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	}
+	_delay_ms(600);
+	
+	while(l < 3)
+	{
+		for(y = 8; y > 0; --y)
+ 466:	11 50       	subi	r17, 0x01	; 1
+ 468:	c1 f7       	brne	.-16     	; 0x45a <__LOCK_REGION_LENGTH__+0x5a>
+ 46a:	ff ef       	ldi	r31, 0xFF	; 255
+ 46c:	25 ea       	ldi	r18, 0xA5	; 165
+ 46e:	8e e0       	ldi	r24, 0x0E	; 14
+ 470:	f1 50       	subi	r31, 0x01	; 1
+ 472:	20 40       	sbci	r18, 0x00	; 0
+ 474:	80 40       	sbci	r24, 0x00	; 0
+ 476:	e1 f7       	brne	.-8      	; 0x470 <__LOCK_REGION_LENGTH__+0x70>
+ 478:	00 c0       	rjmp	.+0      	; 0x47a <__LOCK_REGION_LENGTH__+0x7a>
+ 47a:	00 00       	nop
+ 47c:	fe 01       	movw	r30, r28
+ 47e:	b1 96       	adiw	r30, 0x21	; 33
+ 480:	7f 01       	movw	r14, r30
+		{
+			writeMax(y, image_3[y-1]);
+		}
+		_delay_ms(600);
+		for(y = 8; y > 0; --y)
+ 482:	18 e0       	ldi	r17, 0x08	; 8
+		{
+			writeMax(y, image_4[y-1]);
+ 484:	f7 01       	movw	r30, r14
+ 486:	62 91       	ld	r22, -Z
+ 488:	7f 01       	movw	r14, r30
+ 48a:	81 2f       	mov	r24, r17
+ 48c:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+		for(y = 8; y > 0; --y)
+		{
+			writeMax(y, image_3[y-1]);
+		}
+		_delay_ms(600);
+		for(y = 8; y > 0; --y)
+ 490:	11 50       	subi	r17, 0x01	; 1
+ 492:	c1 f7       	brne	.-16     	; 0x484 <__LOCK_REGION_LENGTH__+0x84>
+ 494:	ff ef       	ldi	r31, 0xFF	; 255
+ 496:	25 ea       	ldi	r18, 0xA5	; 165
+ 498:	8e e0       	ldi	r24, 0x0E	; 14
+ 49a:	f1 50       	subi	r31, 0x01	; 1
+ 49c:	20 40       	sbci	r18, 0x00	; 0
+ 49e:	80 40       	sbci	r24, 0x00	; 0
+ 4a0:	e1 f7       	brne	.-8      	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+ 4a2:	00 c0       	rjmp	.+0      	; 0x4a4 <__LOCK_REGION_LENGTH__+0xa4>
+ 4a4:	00 00       	nop
+ 4a6:	01 50       	subi	r16, 0x01	; 1
+	{
+		writeMax(y, image_4[y-1]);
+	}
+	_delay_ms(600);
+	
+	while(l < 3)
+ 4a8:	29 f0       	breq	.+10     	; 0x4b4 <__LOCK_REGION_LENGTH__+0xb4>
+	for(y = 8; y > 0; --y)
+	{
+		writeMax(y, image_3[y-1]);
+	}
+	_delay_ms(600);
+	for(y = 8; y > 0; --y)
+ 4aa:	fe 01       	movw	r30, r28
+ 4ac:	79 96       	adiw	r30, 0x19	; 25
+ 4ae:	7f 01       	movw	r14, r30
+ 4b0:	18 e0       	ldi	r17, 0x08	; 8
+ 4b2:	d3 cf       	rjmp	.-90     	; 0x45a <__LOCK_REGION_LENGTH__+0x5a>
+			writeMax(y, image_4[y-1]);
+		}
+		_delay_ms(600);
+		l++;
+	}
+	clearDisplay();  //Clears display
+ 4b4:	0e 94 45 03 	call	0x68a	; 0x68a <clearDisplay>
+}
+ 4b8:	a0 96       	adiw	r28, 0x20	; 32
+ 4ba:	0f b6       	in	r0, 0x3f	; 63
+ 4bc:	f8 94       	cli
+ 4be:	de bf       	out	0x3e, r29	; 62
+ 4c0:	0f be       	out	0x3f, r0	; 63
+ 4c2:	cd bf       	out	0x3d, r28	; 61
+ 4c4:	df 91       	pop	r29
+ 4c6:	cf 91       	pop	r28
+ 4c8:	1f 91       	pop	r17
+ 4ca:	0f 91       	pop	r16
+ 4cc:	ff 90       	pop	r15
+ 4ce:	ef 90       	pop	r14
+ 4d0:	08 95       	ret
+
+000004d2 <gameOver>:
+
+
+void gameOver(void)
+{
+ 4d2:	ef 92       	push	r14
+ 4d4:	ff 92       	push	r15
+ 4d6:	0f 93       	push	r16
+ 4d8:	1f 93       	push	r17
+ 4da:	cf 93       	push	r28
+ 4dc:	df 93       	push	r29
+ 4de:	cd b7       	in	r28, 0x3d	; 61
+ 4e0:	de b7       	in	r29, 0x3e	; 62
+ 4e2:	28 97       	sbiw	r28, 0x08	; 8
+ 4e4:	0f b6       	in	r0, 0x3f	; 63
+ 4e6:	f8 94       	cli
+ 4e8:	de bf       	out	0x3e, r29	; 62
+ 4ea:	0f be       	out	0x3f, r0	; 63
+ 4ec:	cd bf       	out	0x3d, r28	; 61
+	resetPress = 0;
+ 4ee:	10 92 2a 01 	sts	0x012A, r1	; 0x80012a <__data_end>
+	// Array displays an X on display
+	uint8_t XImage[8] = {0x81, 0x42, 0x24, 0x18, 0x18, 0x24, 0x42, 0x81};
+ 4f2:	88 e0       	ldi	r24, 0x08	; 8
+ 4f4:	e1 e2       	ldi	r30, 0x21	; 33
+ 4f6:	f1 e0       	ldi	r31, 0x01	; 1
+ 4f8:	de 01       	movw	r26, r28
+ 4fa:	11 96       	adiw	r26, 0x01	; 1
+ 4fc:	01 90       	ld	r0, Z+
+ 4fe:	0d 92       	st	X+, r0
+ 500:	8a 95       	dec	r24
+ 502:	e1 f7       	brne	.-8      	; 0x4fc <gameOver+0x2a>
+ 504:	05 e0       	ldi	r16, 0x05	; 5
+	
+	for(uint8_t k = 0; k < 5; k++)
+	{
+		if(!resetPress)
+ 506:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 50a:	81 11       	cpse	r24, r1
+ 50c:	21 c0       	rjmp	.+66     	; 0x550 <gameOver+0x7e>
+ 50e:	7e 01       	movw	r14, r28
+ 510:	29 e0       	ldi	r18, 0x09	; 9
+ 512:	e2 0e       	add	r14, r18
+ 514:	f1 1c       	adc	r15, r1
+ 516:	18 e0       	ldi	r17, 0x08	; 8
+		{
+			for(uint8_t z = 8; z > 0; --z)
+			{
+				writeMax(z, XImage[z-1]);
+ 518:	f7 01       	movw	r30, r14
+ 51a:	62 91       	ld	r22, -Z
+ 51c:	7f 01       	movw	r14, r30
+ 51e:	81 2f       	mov	r24, r17
+ 520:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	
+	for(uint8_t k = 0; k < 5; k++)
+	{
+		if(!resetPress)
+		{
+			for(uint8_t z = 8; z > 0; --z)
+ 524:	11 50       	subi	r17, 0x01	; 1
+ 526:	c1 f7       	brne	.-16     	; 0x518 <gameOver+0x46>
+ 528:	ff ef       	ldi	r31, 0xFF	; 255
+ 52a:	24 e3       	ldi	r18, 0x34	; 52
+ 52c:	8c e0       	ldi	r24, 0x0C	; 12
+ 52e:	f1 50       	subi	r31, 0x01	; 1
+ 530:	20 40       	sbci	r18, 0x00	; 0
+ 532:	80 40       	sbci	r24, 0x00	; 0
+ 534:	e1 f7       	brne	.-8      	; 0x52e <gameOver+0x5c>
+ 536:	00 c0       	rjmp	.+0      	; 0x538 <gameOver+0x66>
+ 538:	00 00       	nop
+			{
+				writeMax(z, XImage[z-1]);
+			}
+			_delay_ms(500);
+			clearDisplay();
+ 53a:	0e 94 45 03 	call	0x68a	; 0x68a <clearDisplay>
+ 53e:	9f ef       	ldi	r25, 0xFF	; 255
+ 540:	e4 e3       	ldi	r30, 0x34	; 52
+ 542:	fc e0       	ldi	r31, 0x0C	; 12
+ 544:	91 50       	subi	r25, 0x01	; 1
+ 546:	e0 40       	sbci	r30, 0x00	; 0
+ 548:	f0 40       	sbci	r31, 0x00	; 0
+ 54a:	e1 f7       	brne	.-8      	; 0x544 <gameOver+0x72>
+ 54c:	00 c0       	rjmp	.+0      	; 0x54e <gameOver+0x7c>
+ 54e:	00 00       	nop
+ 550:	01 50       	subi	r16, 0x01	; 1
+{
+	resetPress = 0;
+	// Array displays an X on display
+	uint8_t XImage[8] = {0x81, 0x42, 0x24, 0x18, 0x18, 0x24, 0x42, 0x81};
+	
+	for(uint8_t k = 0; k < 5; k++)
+ 552:	c9 f6       	brne	.-78     	; 0x506 <gameOver+0x34>
+			_delay_ms(500);
+			clearDisplay();
+			_delay_ms(500);
+		}
+	}
+ 554:	28 96       	adiw	r28, 0x08	; 8
+ 556:	0f b6       	in	r0, 0x3f	; 63
+ 558:	f8 94       	cli
+ 55a:	de bf       	out	0x3e, r29	; 62
+ 55c:	0f be       	out	0x3f, r0	; 63
+ 55e:	cd bf       	out	0x3d, r28	; 61
+ 560:	df 91       	pop	r29
+ 562:	cf 91       	pop	r28
+ 564:	1f 91       	pop	r17
+ 566:	0f 91       	pop	r16
+ 568:	ff 90       	pop	r15
+ 56a:	ef 90       	pop	r14
+ 56c:	08 95       	ret
+
+0000056e <main>:
+
+int main(void)
+{
+	struct Game stacker;		// Declaring game
+	
+	initINT();					// Initializing interrupts
+ 56e:	0e 94 53 00 	call	0xa6	; 0xa6 <initINT>
+	sei();						// Initializing global interrupts
+ 572:	78 94       	sei
+	
+	SPIMasterInit();			// Initializing SPI Master
+ 574:	0e 94 fd 02 	call	0x5fa	; 0x5fa <SPIMasterInit>
+	initLEDMatrix();			// Initializing LED Matrix
+ 578:	0e 94 23 03 	call	0x646	; 0x646 <initLEDMatrix>
+	
+    while(1)
+    {
+		//////////////////////RESET VARIABLES///////////////////////////////
+		buttonPress = 1; resetPress = 0;		// Reset press & buttonPress
+ 57c:	01 e0       	ldi	r16, 0x01	; 1
+ 57e:	00 93 00 01 	sts	0x0100, r16	; 0x800100 <__data_start>
+ 582:	10 92 2a 01 	sts	0x012A, r1	; 0x80012a <__data_end>
+		stacker.row = 0x08; stacker.gameStart = 1;	// Set row to the bottom
+		clearDisplay();							// Clear display
+ 586:	0e 94 45 03 	call	0x68a	; 0x68a <clearDisplay>
+		////////////////////////////////////////////////////////////////////
+		
+		stacker.score = setScore();					// Determine original score
+ 58a:	0e 94 7b 00 	call	0xf6	; 0xf6 <setScore>
+ 58e:	c8 2f       	mov	r28, r24
+		stacker.lives = setLives(stacker.score);	// Set # of lives
+ 590:	0e 94 fb 00 	call	0x1f6	; 0x1f6 <setLives>
+		stacker.row -=1;							// Go to the next row
+		
+		// Run the game + detects reset press condition
+		while(stacker.gameStart && !resetPress)
+ 594:	90 91 2a 01 	lds	r25, 0x012A	; 0x80012a <__data_end>
+ 598:	91 11       	cpse	r25, r1
+ 59a:	f1 cf       	rjmp	.-30     	; 0x57e <main+0x10>
+ 59c:	d7 e0       	ldi	r29, 0x07	; 7
+ 59e:	10 2f       	mov	r17, r16
+ 5a0:	01 c0       	rjmp	.+2      	; 0x5a4 <main+0x36>
+ 5a2:	19 2f       	mov	r17, r25
+		{
+			buttonPress = 1;						// Resumes the game
+ 5a4:	00 93 00 01 	sts	0x0100, r16	; 0x800100 <__data_start>
+			// obtain user score
+			stacker.checkScore = scan(stacker.row, stacker.score, stacker.lives);
+ 5a8:	48 2f       	mov	r20, r24
+ 5aa:	6c 2f       	mov	r22, r28
+ 5ac:	8d 2f       	mov	r24, r29
+ 5ae:	0e 94 19 01 	call	0x232	; 0x232 <scan>
+			stacker.row -=1;						// Go to the next row
+ 5b2:	d1 50       	subi	r29, 0x01	; 1
+			
+			// Check row score with original score
+			stacker.score &= stacker.checkScore;	// Obtain new score
+ 5b4:	c8 23       	and	r28, r24
+			
+			// Obtain the # of lives after checking current block positions
+			stacker.lives = livesRemaining(stacker.score);
+ 5b6:	8c 2f       	mov	r24, r28
+ 5b8:	0e 94 0b 01 	call	0x216	; 0x216 <livesRemaining>
+			
+			// If there are no more lives, game over sequence plays
+			if(stacker.lives == 0)
+ 5bc:	81 11       	cpse	r24, r1
+ 5be:	17 c0       	rjmp	.+46     	; 0x5ee <main+0x80>
+			{
+				stacker.gameStart = 0;
+				while(!resetPress) gameOver();
+ 5c0:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 5c4:	81 11       	cpse	r24, r1
+ 5c6:	db cf       	rjmp	.-74     	; 0x57e <main+0x10>
+ 5c8:	0e 94 69 02 	call	0x4d2	; 0x4d2 <gameOver>
+ 5cc:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 5d0:	88 23       	and	r24, r24
+ 5d2:	d1 f3       	breq	.-12     	; 0x5c8 <main+0x5a>
+ 5d4:	d4 cf       	rjmp	.-88     	; 0x57e <main+0x10>
+			}
+			// If player gets to the top
+			if(stacker.row == 0 && stacker.lives > 0 && !resetPress)
+ 5d6:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end>
+ 5da:	81 11       	cpse	r24, r1
+ 5dc:	d0 cf       	rjmp	.-96     	; 0x57e <main+0x10>
+			{
+				stacker.gameStart = 0;
+				congrats();
+ 5de:	0e 94 a3 01 	call	0x346	; 0x346 <congrats>
+ 5e2:	cd cf       	rjmp	.-102    	; 0x57e <main+0x10>
+		stacker.score = setScore();					// Determine original score
+		stacker.lives = setLives(stacker.score);	// Set # of lives
+		stacker.row -=1;							// Go to the next row
+		
+		// Run the game + detects reset press condition
+		while(stacker.gameStart && !resetPress)
+ 5e4:	20 91 2a 01 	lds	r18, 0x012A	; 0x80012a <__data_end>
+ 5e8:	22 23       	and	r18, r18
+ 5ea:	d9 f2       	breq	.-74     	; 0x5a2 <main+0x34>
+ 5ec:	c8 cf       	rjmp	.-112    	; 0x57e <main+0x10>
+			{
+				stacker.gameStart = 0;
+				while(!resetPress) gameOver();
+			}
+			// If player gets to the top
+			if(stacker.row == 0 && stacker.lives > 0 && !resetPress)
+ 5ee:	dd 23       	and	r29, r29
+ 5f0:	91 f3       	breq	.-28     	; 0x5d6 <main+0x68>
+ 5f2:	91 2f       	mov	r25, r17
+		stacker.score = setScore();					// Determine original score
+		stacker.lives = setLives(stacker.score);	// Set # of lives
+		stacker.row -=1;							// Go to the next row
+		
+		// Run the game + detects reset press condition
+		while(stacker.gameStart && !resetPress)
+ 5f4:	11 11       	cpse	r17, r1
+ 5f6:	f6 cf       	rjmp	.-20     	; 0x5e4 <main+0x76>
+ 5f8:	c2 cf       	rjmp	.-124    	; 0x57e <main+0x10>
+
+000005fa <SPIMasterInit>:
+{
+	//PORTB is the port where SPI peripheral is located
+	// PB2 - DIN (MOSI)
+	// PB1 - CLK (SCK)
+	// PB0 - CS  (SS)
+	DDRB = (1<<DIN) | (1<<SCK) | (1<<CS);  // MOSI, SCK, & CS
+ 5fa:	8c e2       	ldi	r24, 0x2C	; 44
+ 5fc:	84 b9       	out	0x04, r24	; 4
+
+	//enable SPI interrupt, enable SPI, Master Select, MSB transmitted first, F_CPU/16
+	SPCR = /*(1<< SPIE) |*/ (1<<SPE) | (1<<MSTR) | (0<<DORD) | (0<<SPR1) | (1<<SPR0);
+ 5fe:	81 e5       	ldi	r24, 0x51	; 81
+ 600:	8c bd       	out	0x2c, r24	; 44
+	SPSR = 0x00;
+ 602:	1d bc       	out	0x2d, r1	; 45
+ 604:	08 95       	ret
+
+00000606 <sendData>:
+// Because the LED matrix has 16-bits on its register,
+// the SPDR must be able to shift the bits to account for it.
+void sendData(unsigned char data)
+{
+	//load the first 8-bit data to buffer
+	SPDR = data;
+ 606:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 608:	0d b4       	in	r0, 0x2d	; 45
+ 60a:	07 fe       	sbrs	r0, 7
+ 60c:	fd cf       	rjmp	.-6      	; 0x608 <sendData+0x2>
+ 60e:	08 95       	ret
+
+00000610 <writeMax>:
+*	Passing Parameters:
+*	unsigned char address	-	designated address to write to.
+*	unsigned char data		-	
+*/
+void writeMax(unsigned char address, unsigned char data)
+{
+ 610:	cf 93       	push	r28
+ 612:	c6 2f       	mov	r28, r22
+	LOADSTART;  //CS is set LOW to start loading data
+ 614:	95 b1       	in	r25, 0x05	; 5
+ 616:	94 70       	andi	r25, 0x04	; 4
+ 618:	95 b9       	out	0x05, r25	; 5
+	CLKHIGH;  //set CLK HIGH for incoming register address
+ 61a:	2d 9a       	sbi	0x05, 5	; 5
+	//send address first
+	sendData(address);
+ 61c:	0e 94 03 03 	call	0x606	; 0x606 <sendData>
+	CLKLOW;  //set CLK LOW
+ 620:	85 b1       	in	r24, 0x05	; 5
+ 622:	80 72       	andi	r24, 0x20	; 32
+ 624:	85 b9       	out	0x05, r24	; 5
+
+	CLKHIGH;  //set CLK HIGH for incoming register address
+ 626:	2d 9a       	sbi	0x05, 5	; 5
+	//send data
+	sendData(data);
+ 628:	8c 2f       	mov	r24, r28
+ 62a:	0e 94 03 03 	call	0x606	; 0x606 <sendData>
+	CLKLOW;  //set CLK LOW
+ 62e:	85 b1       	in	r24, 0x05	; 5
+ 630:	80 72       	andi	r24, 0x20	; 32
+ 632:	85 b9       	out	0x05, r24	; 5
+	LOADSTOP;  //CS is set HIGH to end loading data
+ 634:	2a 9a       	sbi	0x05, 2	; 5
+ 636:	87 e8       	ldi	r24, 0x87	; 135
+ 638:	93 e1       	ldi	r25, 0x13	; 19
+ 63a:	01 97       	sbiw	r24, 0x01	; 1
+ 63c:	f1 f7       	brne	.-4      	; 0x63a <writeMax+0x2a>
+ 63e:	00 c0       	rjmp	.+0      	; 0x640 <writeMax+0x30>
+ 640:	00 00       	nop
+	_delay_ms(5);
+}
+ 642:	cf 91       	pop	r28
+ 644:	08 95       	ret
+
+00000646 <initLEDMatrix>:
+*	Function initializes the 8x8 LED display
+*/
+void initLEDMatrix()
+{
+	//add,  hex
+	writeMax(DECODE, 0x00);		 //decode mode
+ 646:	60 e0       	ldi	r22, 0x00	; 0
+ 648:	89 e0       	ldi	r24, 0x09	; 9
+ 64a:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	writeMax(SCAN_LIMIT, 0x07);  //scan limit
+ 64e:	67 e0       	ldi	r22, 0x07	; 7
+ 650:	8b e0       	ldi	r24, 0x0B	; 11
+ 652:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	writeMax(NORMAL_OP, 0x01);   //Normal Operation
+ 656:	61 e0       	ldi	r22, 0x01	; 1
+ 658:	8c e0       	ldi	r24, 0x0C	; 12
+ 65a:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	writeMax(INTENSITY, 0x04);   //define intensity
+ 65e:	64 e0       	ldi	r22, 0x04	; 4
+ 660:	8a e0       	ldi	r24, 0x0A	; 10
+ 662:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+	writeMax(TEST, 0x01);		 //display test
+ 666:	61 e0       	ldi	r22, 0x01	; 1
+ 668:	8f e0       	ldi	r24, 0x0F	; 15
+ 66a:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+ 66e:	2f e7       	ldi	r18, 0x7F	; 127
+ 670:	8a e1       	ldi	r24, 0x1A	; 26
+ 672:	96 e0       	ldi	r25, 0x06	; 6
+ 674:	21 50       	subi	r18, 0x01	; 1
+ 676:	80 40       	sbci	r24, 0x00	; 0
+ 678:	90 40       	sbci	r25, 0x00	; 0
+ 67a:	e1 f7       	brne	.-8      	; 0x674 <initLEDMatrix+0x2e>
+ 67c:	00 c0       	rjmp	.+0      	; 0x67e <initLEDMatrix+0x38>
+ 67e:	00 00       	nop
+	_delay_ms(500);
+	writeMax(TEST, 0x00);		 //display test
+ 680:	60 e0       	ldi	r22, 0x00	; 0
+ 682:	8f e0       	ldi	r24, 0x0F	; 15
+ 684:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+ 688:	08 95       	ret
+
+0000068a <clearDisplay>:
+
+/*
+*	Function clears the 8x8 LED display
+*/
+void clearDisplay()
+{
+ 68a:	cf 93       	push	r28
+	for(uint8_t i = 0; i <= 8; i++)
+ 68c:	c0 e0       	ldi	r28, 0x00	; 0
+		writeMax(i, 0x00);
+ 68e:	60 e0       	ldi	r22, 0x00	; 0
+ 690:	8c 2f       	mov	r24, r28
+ 692:	0e 94 08 03 	call	0x610	; 0x610 <writeMax>
+/*
+*	Function clears the 8x8 LED display
+*/
+void clearDisplay()
+{
+	for(uint8_t i = 0; i <= 8; i++)
+ 696:	cf 5f       	subi	r28, 0xFF	; 255
+ 698:	c9 30       	cpi	r28, 0x09	; 9
+ 69a:	c9 f7       	brne	.-14     	; 0x68e <clearDisplay+0x4>
+		writeMax(i, 0x00);
+ 69c:	cf 91       	pop	r28
+ 69e:	08 95       	ret
+
+000006a0 <_exit>:
+ 6a0:	f8 94       	cli
+
+000006a2 <__stop_program>:
+ 6a2:	ff cf       	rjmp	.-2      	; 0x6a2 <__stop_program>
